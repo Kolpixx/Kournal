@@ -1,0 +1,19 @@
+.entry {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.entry h1 {
+    font-size: 5rem;
+}
+
+.entry p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: #262626;
+}

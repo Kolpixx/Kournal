@@ -1,0 +1,79 @@
+
+.letter-information {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.letter-information-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48%;
+    width: 38%;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
+    color: #262626;
+    font-family: 'Inter', sans-serif;
+}
+
+.letter-information-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.letter-information-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.letter-information-actions button {
+    border: none;
+    background: none;
+    width: 45px;
+    height: 45px;
+}
+
+.information-emoji {
+    font-size: 72px;
+}
+
+.information-fullDateClean {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.view-entry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 15px;
+    background: none;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
+    width: 55%;
+    height: 25%;
+    gap: 12px;
+    font-size: 2.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 650;
+    color: #262626;
+}

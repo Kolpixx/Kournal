@@ -1,0 +1,72 @@
+import './Creation.css'
+
+import { getCurrentDate } from '../../../util/getCurrentDate'
+import { EmojiPicker } from 'frimousse'
+import { useState } from 'react';
+
+export default function Creation({setShowing}) {
+    const [showingEmojiPicker, toggleEmojiPicker] = useState(false);
+    const [currentEmoji, setEmoji] = useState(null);
+
+    return (
+        <div className="creation">
+            <div className="creation-input-container">
+                <div className="creation-top">
+                    <div className="emoji">
+                        <button className="emoji-button" onClick={() => toggleEmojiPicker(!showingEmojiPicker)}>
+                            {currentEmoji === null ? <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="#26262673" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-smile-icon lucide-smile"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg> : <span className="emoji-display">{currentEmoji}</span>}
+                        </button>
+                        {showingEmojiPicker ? <MyEmojiPicker setEmoji={setEmoji} toggleEmojiPicker={toggleEmojiPicker} /> : null}
+                    </div>
+                    <h2>{getCurrentDate()}</h2>
+                </div>
+                <textarea id="creation-input" name="creation-input" placeholder="Dear Diary..." required={true} />
+                <button className="send-button" onClick={() => saveLetter(currentEmoji, setShowing)}>
+                    <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.4631 22.5348C18.1047 22.1771 17.6777 21.8957 17.2076 21.7075L2.33887 15.745C2.16134 15.6737 2.00985 15.5499 1.90473 15.3901C1.79961 15.2303 1.7459 15.0421 1.7508 14.8509C1.75569 14.6597 1.81897 14.4745 1.93213 14.3203C2.0453 14.1661 2.20293 14.0502 2.38387 13.9881L38.0089 1.80061C38.175 1.7406 38.3548 1.72915 38.5272 1.76759C38.6996 1.80604 38.8575 1.89279 38.9824 2.01769C39.1073 2.1426 39.1941 2.30049 39.2325 2.4729C39.271 2.64531 39.2595 2.8251 39.1995 2.99123L27.012 38.6162C26.9499 38.7972 26.834 38.9548 26.6798 39.068C26.5256 39.1811 26.3404 39.2444 26.1492 39.2493C25.958 39.2542 25.7698 39.2005 25.61 39.0954C25.4502 38.9903 25.3264 38.8388 25.2551 38.6612L19.2926 23.7887C19.1036 23.319 18.8214 22.8925 18.4631 22.5348ZM18.4631 22.5348L38.9764 2.02561" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    )
+}
+
+function saveLetter(currentEmoji, setShowing) {
+    // Create JSON
+    const content = document.getElementById("creation-input").value;
+    const date = getCurrentDate("YYYYMMDD");
+    const fullDateClean = getCurrentDate();
+    const cleanDate = getCurrentDate("DDMMYY");
+
+    if (localStorage.getItem("entries") === null) {
+        localStorage.setItem("entries", "{}");
+    }
+
+    let letterJSON = {
+        key: date,
+        fullDateClean: fullDateClean,
+        date: cleanDate,
+        content: content,
+        emoji: currentEmoji
+    }
+
+    const entriesObject = JSON.parse(localStorage.getItem("entries"));
+    entriesObject[date] = letterJSON;
+
+    localStorage.setItem("entries", JSON.stringify(entriesObject));
+
+    setShowing(false);
+}
+
+function MyEmojiPicker({ setEmoji, toggleEmojiPicker }) {
+  return (
+    <EmojiPicker.Root onEmojiSelect={({ emoji }) => {setEmoji(emoji); toggleEmojiPicker(false);}}>
+      <EmojiPicker.Search />
+      <EmojiPicker.Viewport>
+        <EmojiPicker.Loading>Loading…</EmojiPicker.Loading>
+        <EmojiPicker.Empty>No emoji found.</EmojiPicker.Empty>
+        <EmojiPicker.List />
+      </EmojiPicker.Viewport>
+    </EmojiPicker.Root>
+  );
+}
