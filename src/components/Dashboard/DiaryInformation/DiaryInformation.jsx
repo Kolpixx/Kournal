@@ -1,6 +1,6 @@
-import './LetterInformation.css'
+import './DiaryInformation.css'
 
-export default function LetterInformation({currentEntryKey, showLetterInformation}) {
+export default function DiaryInformation({currentEntryKey, showDiaryInformation}) {
     const entries = JSON.parse(localStorage.getItem("entries"));
 
     const entry = entries[currentEntryKey];
@@ -9,7 +9,7 @@ export default function LetterInformation({currentEntryKey, showLetterInformatio
         <div className="letter-information">
             <div className="letter-information-container">
                 <div className="letter-information-actions">
-                    <button onClick={() => showLetterInformation(false)}>
+                    <button onClick={() => showDiaryInformation(false)}>
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.5 3.5L3.5 40.5" stroke="#262626" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M3.5 3.5L40.5 40.5" stroke="#262626" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>

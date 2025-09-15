@@ -1,8 +1,8 @@
 import './EntryButton.css'
 
-export default function EntryButton(currentEntrykey, showLetterInformation, entry) {
+export default function EntryButton(currentEntrykey, showDiaryInformation, entry) {
     return (
-        <div key={entry.key} className="entry" onClick={() => viewEntry(currentEntrykey, showLetterInformation, entry.key)}>
+        <div key={entry.key} className="entry" onClick={() => viewEntry(currentEntrykey, showDiaryInformation, entry.key)}>
             <h1>{entry.emoji}</h1>
             <p>{entry.date}</p>
             <button className="edit" onClick={(e) => {e.stopPropagation(); editEntry(entry.key)}}>
@@ -12,10 +12,10 @@ export default function EntryButton(currentEntrykey, showLetterInformation, entr
     )
 }
 
-function viewEntry(currentEntryKey, showLetterInformation, date) {
+function viewEntry(currentEntryKey, showDiaryInformation, date) {
     currentEntryKey.current = date;
     
-    showLetterInformation(true);
+    showDiaryInformation(true);
 }
 
 function editEntry(entry) {

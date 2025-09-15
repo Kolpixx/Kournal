@@ -5,10 +5,10 @@ import { getEntries } from '../../util/getEntries';
 import { name, funfact } from '../../App';
 
 import CreateButton from './CreateButton/CreateButton';
-import LetterInformation from './LetterInformation/LetterInformation'
+import DiaryInformation from './DiaryInformation/DiaryInformation'
 
 export default function Dashboard({showing, setShowing}) {
-    const [showingLetterInformation, showLetterInformation] = useState(false);
+    const [showingDiaryInformation, showDiaryInformation] = useState(false);
     let currentEntryKey = useRef(null);
 
     if (localStorage.getItem("entries") === null) {
@@ -19,7 +19,7 @@ export default function Dashboard({showing, setShowing}) {
 
     return (
         <div className="dashboard">
-            {showingLetterInformation && <LetterInformation currentEntryKey={currentEntryKey.current} showLetterInformation={showLetterInformation} />}
+            {showingDiaryInformation && <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} />}
             <section className="top">
                 <div className="greeting">
                     <h1>Welcome {name}!</h1>
@@ -31,7 +31,7 @@ export default function Dashboard({showing, setShowing}) {
             </section>
             <section className="bottom">
                 {entriesObject[getCurrentDate("YYYYMMDD")] ? null : <CreateButton showing={showing} setShowing={setShowing} /> } 
-                {getEntries(currentEntryKey, showLetterInformation)}
+                {getEntries(currentEntryKey, showDiaryInformation)}
             </section>
         </div>
     )
