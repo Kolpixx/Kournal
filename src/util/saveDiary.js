@@ -11,7 +11,7 @@ export function saveDiary(currentEmoji, setShowing) {
         localStorage.setItem("entries", "{}");
     }
 
-    let diarryJSON = {
+    let diaryJSON = {
         key: date,
         fullDateClean: fullDateClean,
         date: cleanDate,
@@ -20,7 +20,7 @@ export function saveDiary(currentEmoji, setShowing) {
     }
 
     const entriesObject = JSON.parse(localStorage.getItem("entries"));
-    entriesObject[date] = diarryJSON;
+    entriesObject[date] = diaryJSON;
 
     localStorage.setItem("entries", JSON.stringify(entriesObject));
 

@@ -6,9 +6,9 @@ export default function DiaryInformation({currentEntryKey, showDiaryInformation}
     const entry = entries[currentEntryKey];
 
     return (
-        <div id="diarry-information" onClick={(e) => {(e.target.id === "diarry-information") && showDiaryInformation(false)}}>
-            <div id="diarry-information-container">
-                <div id="diarry-information-actions">
+        <div id="diary-information" onClick={(e) => {(e.target.id === "diary-information") && showDiaryInformation(false)}}>
+            <div id="diary-information-container">
+                <div id="diary-information-actions">
                     <button onClick={() => showDiaryInformation(false)}>
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.5 3.5L3.5 40.5" stroke="#262626" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -22,7 +22,7 @@ export default function DiaryInformation({currentEntryKey, showDiaryInformation}
                         </svg>
                     </button>
                 </div>
-                <div id="diarry-information-main">
+                <div id="diary-information-main">
                     <span id="information-emoji">{entry.emoji}</span>
                     <span id="information-fullDateClean">{entry.fullDateClean}</span>
                     <button id="view-entry">
