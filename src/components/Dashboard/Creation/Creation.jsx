@@ -3,6 +3,7 @@ import './Creation.css'
 import { getCurrentDate } from '../../../util/getCurrentDate'
 import { EmojiPicker } from 'frimousse'
 import { useState } from 'react';
+import { saveLetter } from '../../../util/saveLetter';
 
 export default function Creation({setShowing}) {
     const [showingEmojiPicker, toggleEmojiPicker] = useState(false);
@@ -29,33 +30,6 @@ export default function Creation({setShowing}) {
             </div>
         </div>
     )
-}
-
-function saveLetter(currentEmoji, setShowing) {
-    // Create JSON
-    const content = document.getElementById("creation-input").value;
-    const date = getCurrentDate("YYYYMMDD");
-    const fullDateClean = getCurrentDate();
-    const cleanDate = getCurrentDate("DDMMYY");
-
-    if (localStorage.getItem("entries") === null) {
-        localStorage.setItem("entries", "{}");
-    }
-
-    let letterJSON = {
-        key: date,
-        fullDateClean: fullDateClean,
-        date: cleanDate,
-        content: content,
-        emoji: currentEmoji
-    }
-
-    const entriesObject = JSON.parse(localStorage.getItem("entries"));
-    entriesObject[date] = letterJSON;
-
-    localStorage.setItem("entries", JSON.stringify(entriesObject));
-
-    setShowing(false);
 }
 
 function MyEmojiPicker({ setEmoji, toggleEmojiPicker }) {
