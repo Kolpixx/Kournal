@@ -7,11 +7,11 @@ export const name = "Felix";
 export const funfact = "Fun fact: Due to their low-calorie diet, red pandas do little more than eat and sleep.";
 
 function App() {
-  const [showing, setShowing] = useState(false);
+  const [showingCreationPage, showCreationPage] = useState(false);
 
   return (
     <>
-      {showing ? <Creation setShowing={setShowing} /> : <Dashboard showing={showing} setShowing={setShowing} />}
+      {showingCreationPage ? <Creation setShowing={showCreationPage} /> : <Dashboard showing={showingCreationPage} setShowing={showCreationPage} />}
     </>
   )
 }

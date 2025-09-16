@@ -1,5 +1,5 @@
 
-#letter-information {
+#diarry-information {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
     z-index: 2;
 }
 
-#letter-information-container {
+#diarry-information-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-#letter-information-main {
+#diarry-information-main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,7 +36,7 @@
     width: 100%;
 }
 
-#letter-information-actions {
+#diarry-information-actions {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -45,7 +45,7 @@
     right: 20px;
 }
 
-#letter-information-actions button {
+#diarry-information-actions button {
     border: none;
     background: none;
     width: 45px;
