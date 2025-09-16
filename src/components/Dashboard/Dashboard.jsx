@@ -6,9 +6,11 @@ import { name, funfact } from '../../App';
 
 import CreateButton from './CreateButton/CreateButton';
 import DiaryInformation from './DiaryInformation/DiaryInformation'
+import ViewDiaryEntry from './DiaryInformation/ViewDiaryEntry/ViewDiaryEntry';
 
 export default function Dashboard({showingCreationPage, showCreationPage}) {
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
+    const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
     let currentEntryKey = useRef(null);
 
     if (localStorage.getItem("entries") === null) {
@@ -19,7 +21,7 @@ export default function Dashboard({showingCreationPage, showCreationPage}) {
 
     return (
         <div className="dashboard">
-            {showingDiaryInformation && <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} />}
+            {showingDiaryInformation ? <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} /> : viewingDiaryEntry ? <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} /> : null}
             <section className="top">
                 <div className="greeting">
                     <h1>Welcome {name}!</h1>
