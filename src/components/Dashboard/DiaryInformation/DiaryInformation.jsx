@@ -6,9 +6,9 @@ export default function DiaryInformation({currentEntryKey, showDiaryInformation}
     const entry = entries[currentEntryKey];
 
     return (
-        <div className="letter-information">
-            <div className="letter-information-container">
-                <div className="letter-information-actions">
+        <div id="letter-information" onClick={(e) => {(e.target.id === "letter-information") && showDiaryInformation(false)}}>
+            <div id="letter-information-container">
+                <div id="letter-information-actions">
                     <button onClick={() => showDiaryInformation(false)}>
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.5 3.5L3.5 40.5" stroke="#262626" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -22,10 +22,10 @@ export default function DiaryInformation({currentEntryKey, showDiaryInformation}
                         </svg>
                     </button>
                 </div>
-                <div className="letter-information-main">
-                    <span className="information-emoji">{entry.emoji}</span>
-                    <span className="information-fullDateClean">{entry.fullDateClean}</span>
-                    <button className="view-entry">
+                <div id="letter-information-main">
+                    <span id="information-emoji">{entry.emoji}</span>
+                    <span id="information-fullDateClean">{entry.fullDateClean}</span>
+                    <button id="view-entry">
                         <svg width="66" height="54" viewBox="0 0 66 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M63 12L36.027 29.181C35.1117 29.7126 34.072 29.9927 33.0135 29.9927C31.955 29.9927 30.9153 29.7126 30 29.181L3 12" stroke="#262626" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
                             <path d="M57 3H9C5.68629 3 3 5.68629 3 9V45C3 48.3137 5.68629 51 9 51H57C60.3137 51 63 48.3137 63 45V9C63 5.68629 60.3137 3 57 3Z" stroke="#262626" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
