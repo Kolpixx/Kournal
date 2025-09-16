@@ -1,6 +1,6 @@
 import { getCurrentDate } from "./getCurrentDate";
 
-export function saveDiary(currentEmoji, setShowing) {
+export function saveDiary(currentEmoji, showCreationPage) {
     // Create JSON
     const content = document.getElementById("creation-input").value;
     const date = getCurrentDate("YYYYMMDD");
@@ -24,5 +24,5 @@ export function saveDiary(currentEmoji, setShowing) {
 
     localStorage.setItem("entries", JSON.stringify(entriesObject));
 
-    setShowing(false);
+    showCreationPage(false);
 }

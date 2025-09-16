@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      {showingCreationPage ? <Creation setShowing={showCreationPage} /> : <Dashboard showing={showingCreationPage} setShowing={showCreationPage} />}
+      {showingCreationPage ? <Creation showCreationPage={showCreationPage} /> : <Dashboard showingCreationPage={showingCreationPage} showCreationPage={showCreationPage} />}
     </>
   )
 }

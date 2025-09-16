@@ -7,7 +7,7 @@ import { name, funfact } from '../../App';
 import CreateButton from './CreateButton/CreateButton';
 import DiaryInformation from './DiaryInformation/DiaryInformation'
 
-export default function Dashboard({showing, setShowing}) {
+export default function Dashboard({showingCreationPage, showCreationPage}) {
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
     let currentEntryKey = useRef(null);
 
@@ -30,7 +30,7 @@ export default function Dashboard({showing, setShowing}) {
                 </div>
             </section>
             <section className="bottom">
-                {entriesObject[getCurrentDate("YYYYMMDD")] ? null : <CreateButton showing={showing} setShowing={setShowing} /> } 
+                {entriesObject[getCurrentDate("YYYYMMDD")] ? null : <CreateButton showingCreationPage={showingCreationPage} showCreationPage={showCreationPage} /> } 
                 {getEntries(currentEntryKey, showDiaryInformation)}
             </section>
         </div>
