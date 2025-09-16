@@ -28,7 +28,8 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    border: 5px solid black;
+    border: 3px solid black;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
     border-radius: 50px;
 }
 
