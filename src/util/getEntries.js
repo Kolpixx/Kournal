@@ -1,6 +1,6 @@
 import EntryButton from '../components/Dashboard/EntryButton/EntryButton';
 
-export function getEntries(currentEntryKey, showDiaryInformation) {
+export function getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage) {
     // Get localStorage entries object
     const items = JSON.parse(localStorage.getItem("entries"));
 
@@ -12,7 +12,7 @@ export function getEntries(currentEntryKey, showDiaryInformation) {
 
         if (matchesRegex) {
             const entry = items[key];
-            entries.push(EntryButton(currentEntryKey, showDiaryInformation, entry));
+            entries.push(EntryButton(currentEntryKey, showDiaryInformation, entry, toggleEditingMode, showCreationPage));
         }
     }
     return entries.reverse();

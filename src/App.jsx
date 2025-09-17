@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Dashboard from './components/Dashboard/Dashboard';
 import Creation from './components/Dashboard/Creation/Creation'
 
@@ -8,10 +8,12 @@ export const funfact = "Fun fact: Due to their low-calorie diet, red pandas do l
 
 function App() {
   const [showingCreationPage, showCreationPage] = useState(false);
+  const [editingMode, toggleEditingMode] = useState(false);
+  let currentEntryKey = useRef(null);
 
   return (
     <>
-      {showingCreationPage ? <Creation showCreationPage={showCreationPage} /> : <Dashboard showingCreationPage={showingCreationPage} showCreationPage={showCreationPage} />}
+      {showingCreationPage ? <Creation showCreationPage={showCreationPage} currentEntryKey={currentEntryKey.current} editingMode={editingMode} toggleEditingMode={toggleEditingMode} /> : <Dashboard showingCreationPage={showingCreationPage} showCreationPage={showCreationPage} currentEntryKey={currentEntryKey} toggleEditingMode={toggleEditingMode} />}
     </>
   )
 }

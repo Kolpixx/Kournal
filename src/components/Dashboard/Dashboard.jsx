@@ -1,5 +1,5 @@
 import './Dashboard.css';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
 import { name, funfact } from '../../App';
@@ -8,10 +8,9 @@ import CreateButton from './CreateButton/CreateButton';
 import DiaryInformation from './DiaryInformation/DiaryInformation'
 import ViewDiaryEntry from './DiaryInformation/ViewDiaryEntry/ViewDiaryEntry';
 
-export default function Dashboard({showingCreationPage, showCreationPage}) {
+export default function Dashboard({showingCreationPage, showCreationPage, currentEntryKey, toggleEditingMode}) {
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
     const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
-    let currentEntryKey = useRef(null);
 
     if (localStorage.getItem("entries") === null) {
         localStorage.setItem("entries", "{}");
@@ -21,7 +20,7 @@ export default function Dashboard({showingCreationPage, showCreationPage}) {
 
     return (
         <div className="dashboard">
-            {showingDiaryInformation ? <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} /> : viewingDiaryEntry ? <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} /> : null}
+            {showingDiaryInformation ? <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} /> : viewingDiaryEntry ? <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} /> : null}
             <section className="top">
                 <div className="greeting">
                     <h1>Welcome {name}!</h1>
@@ -33,7 +32,7 @@ export default function Dashboard({showingCreationPage, showCreationPage}) {
             </section>
             <section className="bottom">
                 {entriesObject[getCurrentDate("YYYYMMDD")] ? null : <CreateButton showingCreationPage={showingCreationPage} showCreationPage={showCreationPage} /> } 
-                {getEntries(currentEntryKey, showDiaryInformation)}
+                {getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage)}
             </section>
         </div>
     )

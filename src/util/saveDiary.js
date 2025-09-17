@@ -1,11 +1,15 @@
 import { getCurrentDate } from "./getCurrentDate";
 
-export function saveDiary(currentEmoji, showCreationPage) {
+export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
     // Create JSON
     const content = document.getElementById("creation-input").value;
-    const date = getCurrentDate("YYYYMMDD");
-    const fullDateClean = getCurrentDate();
-    const cleanDate = getCurrentDate("DDMMYY");
+
+    // Only get dates when unknown
+    if (date === null) {
+        date = getCurrentDate("YYYYMMDD");
+        fullDateClean = getCurrentDate();
+        cleanDate = getCurrentDate("DDMMYY");
+    }
 
     if (localStorage.getItem("entries") === null) {
         localStorage.setItem("entries", "{}");
