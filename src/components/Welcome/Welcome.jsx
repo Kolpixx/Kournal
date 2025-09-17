@@ -21,12 +21,14 @@ export default function Welcome() {
                 <span>＼(＾▽＾)／</span>
             </section>
             <section id="welcome-screen-right">
-                <label htmlFor="welcome-screen-name-input">What's ya' name??</label>
-                <input id="welcome-screen-name-input" type="text" maxLength={20} required={true} placeholder="Tell me pwease! :P" />
-                <div id="welcome-screen-actions">
-                    <button id="welcome-screen-actions-submit" type="submit" onClick={finishSetup}>LET ME IN!!!</button>
-                    <button id="welcome-screen-actions-meow" onClick={() => showMeowMeow(true)}>Cat pic :3</button>
-                </div>
+                <form onSubmit={(e) => {e.preventDefault(); finishSetup()}}>
+                    <label htmlFor="welcome-screen-name-input">What's ya' name??</label>
+                    <input id="welcome-screen-name-input" type="text" maxLength={20} required={true} placeholder="Tell me pwease! :P" />
+                    <div id="welcome-screen-actions">
+                        <button id="welcome-screen-actions-submit" type="submit">LET ME IN!!!</button>
+                        <button id="welcome-screen-actions-meow" onClick={() => showMeowMeow(true)}>Cat pic :3</button>
+                    </div>
+                </form>
             </section>
         </div>
     )

@@ -25,14 +25,14 @@
     line-height: 90%
 }
 
-#welcome-screen-right {
+#welcome-screen-right > form {
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#welcome-screen-right label {
+#welcome-screen-right > form label {
     font-size: 2.3rem;
     font-weight: 900;
     line-height: 75%;
