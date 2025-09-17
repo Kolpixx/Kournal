@@ -5,7 +5,7 @@ export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, c
     const content = document.getElementById("creation-input").value;
 
     // Only get dates when unknown
-    if (date === null) {
+    if (date === undefined) {
         date = getCurrentDate("YYYYMMDD");
         fullDateClean = getCurrentDate();
         cleanDate = getCurrentDate("DDMMYY");

@@ -41,7 +41,6 @@ export default function Creation({showCreationPage, currentEntryKey, editingMode
                     </div>
                 </div>
                 <textarea id="creation-input" name="creation-input" placeholder="Dear Diary..." required={true} defaultValue={editingMode ? entry.content : null} />
-
             </div>
         </div>
     )
