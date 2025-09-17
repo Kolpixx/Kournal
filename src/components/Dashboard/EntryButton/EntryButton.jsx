@@ -2,7 +2,7 @@ import './EntryButton.css'
 
 export default function EntryButton(currentEntryKey, showDiaryInformation, entry, toggleEditingMode, showCreationPage) {
     return (
-        <div key={entry.key} className="entry" onClick={() => viewEntry(currentEntrykey, showDiaryInformation, entry.key)}>
+        <div key={entry.key} className="entry" onClick={() => viewEntry(currentEntryKey, showDiaryInformation, entry.key)}>
             <h1>{entry.emoji}</h1>
             <p>{entry.date}</p>
             <button className="edit" onClick={(e) => {e.stopPropagation(); currentEntryKey.current = entry.key; toggleEditingMode(true); showCreationPage(true)}}>
