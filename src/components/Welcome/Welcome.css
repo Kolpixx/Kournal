@@ -50,6 +50,7 @@
 
 #welcome-screen-name-input:focus {
     outline: none;
+    border-color: black;
 }
 
 #welcome-screen-actions {
@@ -62,11 +63,14 @@
     height: 60px;
     border-radius: 10px;
     border: 3px solid #262626;
-    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
     font-weight: bold;
     color: #262626;
     font-size: 120%;
     transition: background-color 0.25s;
+}
+
+#welcome-screen-actions button:hover {
+    border-color: black;
 }
 
 #welcome-screen-actions-submit {
@@ -85,4 +89,31 @@
 
 #welcome-screen-actions-meow:hover {
     background-color: rgba(255, 92, 214, 0.70);
+}
+
+#welcome-screen-meow-image-container {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#welcome-screen-meow-image {
+    max-width: 70%;
+    max-height: 50%;
+}
+
+#welcome-screen-meow-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+    width: 45px;
+    height: 45px;
+    filter: drop-shadow(5px 5px 10px black)
 }
