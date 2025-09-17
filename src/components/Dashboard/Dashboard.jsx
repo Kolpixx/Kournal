@@ -2,7 +2,8 @@ import './Dashboard.css';
 import { useState } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
-import { name, funfact } from '../../App';
+import { name } from '../../App';
+import { funFacts } from '../../consts';
 
 import CreateButton from './CreateButton/CreateButton';
 import DiaryInformation from './DiaryInformation/DiaryInformation'
@@ -11,6 +12,7 @@ import ViewDiaryEntry from './DiaryInformation/ViewDiaryEntry/ViewDiaryEntry';
 export default function Dashboard({showingCreationPage, showCreationPage, currentEntryKey, toggleEditingMode}) {
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
     const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
+    const funFact = funFacts[(Math.round(Math.random() * ((funFacts.length) - 1)))];
 
     if (localStorage.getItem("entries") === null) {
         localStorage.setItem("entries", "{}");
@@ -24,7 +26,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
             <section className="top">
                 <div className="greeting">
                     <h1>Welcome {name}!</h1>
-                    <p>Fun fact: {funfact}</p>
+                    <p>Fun fact: {funFact}</p>
                 </div>
                 <div className="date">
                     <h2>{getCurrentDate()}</h2>
