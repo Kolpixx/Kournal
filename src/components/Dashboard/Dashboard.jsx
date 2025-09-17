@@ -2,7 +2,6 @@ import './Dashboard.css';
 import { useState } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
-import { name } from '../../App';
 import { funFacts } from '../../consts';
 
 import CreateButton from './CreateButton/CreateButton';
@@ -12,7 +11,10 @@ import ViewDiaryEntry from './DiaryInformation/ViewDiaryEntry/ViewDiaryEntry';
 export default function Dashboard({showingCreationPage, showCreationPage, currentEntryKey, toggleEditingMode}) {
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
     const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
+
     const funFact = funFacts[(Math.round(Math.random() * ((funFacts.length) - 1)))];
+    const userJSON = JSON.parse(localStorage.getItem("user"));
+    const name = userJSON.name;
 
     if (localStorage.getItem("entries") === null) {
         localStorage.setItem("entries", "{}");

@@ -1,0 +1,88 @@
+#welcome-screen {
+    gap: 75px;
+    color: #262626;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+
+#welcome-screen-left {
+    font-family: 'Lilita One', sans-serif;
+}
+
+#welcome-screen-left h1 {
+    font-size: 10rem;
+    line-height: 90%;
+}
+
+#welcome-screen-left span {
+    font-size: 2.4rem;
+    line-height: 90%
+}
+
+#welcome-screen-right {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#welcome-screen-right label {
+    font-size: 2.3rem;
+    font-weight: 900;
+    line-height: 75%;
+}
+
+#welcome-screen-name-input {
+    height: 64px;
+    border-radius: 10px;
+    border: 3px solid #262626;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #262626;
+}
+
+#welcome-screen-name-input:focus {
+    outline: none;
+}
+
+#welcome-screen-actions {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+#welcome-screen-actions button {
+    height: 60px;
+    border-radius: 10px;
+    border: 3px solid #262626;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
+    font-weight: bold;
+    color: #262626;
+    font-size: 120%;
+    transition: background-color 0.25s;
+}
+
+#welcome-screen-actions-submit {
+    background-color: rgba(92, 255, 111, 0.40);
+    width: 60%;
+}
+
+#welcome-screen-actions-submit:hover {
+    background-color: rgba(92, 255, 111, 0.70);
+}
+
+#welcome-screen-actions-meow {
+    background-color: rgba(255, 92, 214, 0.40);
+    width: 40%;
+}
+
+#welcome-screen-actions-meow:hover {
+    background-color: rgba(255, 92, 214, 0.70);
+}
