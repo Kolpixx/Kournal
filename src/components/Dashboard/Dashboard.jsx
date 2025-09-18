@@ -1,5 +1,5 @@
 import './Dashboard.css';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
 import { funFacts } from '../../consts';
@@ -26,8 +26,13 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
 
     const entriesObject = JSON.parse(localStorage.getItem("entries"));
 
+    // Disable scroll when some popup is open
+    useEffect(() => {
+        showingDiaryInformation || viewingDiaryEntry || showingSettings ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
+    }, [showingDiaryInformation, viewingDiaryEntry, showingSettings]);
+
     return (
-        <div className="dashboard">
+        <div id="dashboard">
             {showingDiaryInformation && <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} />}
             {viewingDiaryEntry && <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} showDiaryInformation={showDiaryInformation} />}
             {showingSettings && <Settings showSettings={showSettings} name={name} />}
