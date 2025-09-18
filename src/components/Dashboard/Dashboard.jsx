@@ -1,5 +1,5 @@
 import './Dashboard.css';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
 import { funFacts } from '../../consts';
@@ -14,7 +14,9 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
     const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
     const [showingSettings, showSettings] = useState(false);
 
-    const funFact = funFacts[(Math.round(Math.random() * ((funFacts.length) - 1)))];
+    const funFactNumber = useRef(Math.round(Math.random() * ((funFacts.length) - 1)));
+    const funFact = funFacts[funFactNumber.current];
+
     const userJSON = JSON.parse(localStorage.getItem("user"));
     const name = userJSON.name;
 
