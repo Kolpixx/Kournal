@@ -20,6 +20,7 @@
     font-family: 'Lilita One', sans-serif;
     border-radius: 25px;
     width: 70%;
+    min-height: 70%;
     max-height: 80%;
     padding: 50px;
     box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
@@ -35,11 +36,33 @@
     right: 20px;
 }
 
-#diary-entry-viewer-actions button {
+#diary-entry-viewer-actions path {
+    transition: stroke 0.25s;
+}
+
+#diary-entry-viewer-actions button:hover path {
+    stroke: black;
+}
+
+.diary-entry-viewer-action-button {
     border: none;
     background: none;
     width: 45px;
     height: 45px;
+}
+
+#diary-entry-viewer-delete-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#diary-entry-viewer-delete-button svg {
+    transition: stroke 0.25s;
+}
+
+#diary-entry-viewer-delete-button:hover svg {
+    stroke: #a70000ff;
 }
 
 #diary-entry-emoji {

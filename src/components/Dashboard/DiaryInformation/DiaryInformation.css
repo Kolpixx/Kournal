@@ -45,11 +45,33 @@
     right: 20px;
 }
 
-#diary-information-actions button {
+#diary-information-actions path {
+    transition: stroke 0.25s;
+}
+
+#diary-information-actions button:hover path {
+    stroke: black;
+}
+
+.diary-information-action-button {
     border: none;
     background: none;
     width: 45px;
     height: 45px;
+}
+
+#diary-information-delete-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#diary-information-delete-button svg {
+    transition: stroke 0.25s;
+}
+
+#diary-information-delete-button:hover svg {
+    stroke: #a70000ff;
 }
 
 #information-emoji {
