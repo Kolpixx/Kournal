@@ -53,7 +53,7 @@
 
 #settings-container-form input {
     height: 48px;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 3px solid #262626;
     padding: 5px;
     font-size: 1.2rem;
@@ -69,7 +69,7 @@
     width: 48px;
     border: 3px solid #262626;
     background: rgba(92, 255, 111, 0.4);
-    border-radius: 15px;
+    border-radius: 8px;
     transition: background 0.25s;
 }
 
@@ -105,11 +105,13 @@
 }
 
 #settings-import-export button {
+    font-family: 'Inter', sans-serif;
     height: 60px;
     width: 50%;
-    border-radius: 10px;
+    border-radius: 8px;
     border: 3px solid #262626;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #262626;
     transition: background-color 0.25s, border-color 0.25s;
 }
