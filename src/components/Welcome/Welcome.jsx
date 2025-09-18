@@ -32,7 +32,7 @@ export default function Welcome() {
                     <input id="welcome-screen-name-input" type="text" maxLength={20} placeholder="Tell me pwease! :P" />
                     <div id="welcome-screen-actions">
                         <button id="welcome-screen-actions-submit" type="submit">LET ME IN!!!</button>
-                        <button id="welcome-screen-actions-meow" onClick={() => showMeowMeow(true)}>Cat pic :3</button>
+                        <button id="welcome-screen-actions-meow" type="button" onClick={() => showMeowMeow(true)}>Cat pic :3</button>
                     </div>
                 </form>
             </section>
