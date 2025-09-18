@@ -9,6 +9,14 @@
     background: white;
     height: 100%;
     width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+    #welcome-screen {
+        flex-direction: column;
+        gap: 50px;
+    }
 }
 
 #welcome-screen-left {
