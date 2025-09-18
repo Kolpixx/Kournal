@@ -15,7 +15,7 @@
 
 #settings-container {
     position: relative;
-    width: 30%;
+    width: 500px;
     background: white;
     border-radius: 15px;
     display: flex;
@@ -101,13 +101,12 @@
 #settings-import-export {
     display: flex;
     gap: 20px;
-    width: 50%;
 }
 
 #settings-import-export button {
     font-family: 'Inter', sans-serif;
     height: 60px;
-    width: 50%;
+    width: 150px;
     border-radius: 8px;
     border: 3px solid #262626;
     font-size: 1.5rem;
