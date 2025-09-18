@@ -1,6 +1,7 @@
 import './Welcome.css'
 
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function Welcome() {
     const [showingMeowMeow, showMeowMeow] = useState(false);
@@ -13,6 +14,11 @@ export default function Welcome() {
         }
     }, [showingMeowMeow])
 
+    const notify = () => toast.error("You need to enter your name!!", {
+        position: "bottom-right",
+        closeOnClick: true
+    });
+
     return (
         <div id="welcome-screen">
             {showingMeowMeow && <RandomCatImage showMeowMeow={showMeowMeow} />}
@@ -21,20 +27,27 @@ export default function Welcome() {
                 <span>＼(＾▽＾)／</span>
             </section>
             <section id="welcome-screen-right">
-                <form onSubmit={(e) => {e.preventDefault(); finishSetup()}}>
+                <form onSubmit={(e) => {e.preventDefault(); finishSetup(notify)}}>
                     <label htmlFor="welcome-screen-name-input">What's ya' name??</label>
-                    <input id="welcome-screen-name-input" type="text" maxLength={20} required={true} placeholder="Tell me pwease! :P" />
+                    <input id="welcome-screen-name-input" type="text" maxLength={20} placeholder="Tell me pwease! :P" />
                     <div id="welcome-screen-actions">
                         <button id="welcome-screen-actions-submit" type="submit">LET ME IN!!!</button>
                         <button id="welcome-screen-actions-meow" onClick={() => showMeowMeow(true)}>Cat pic :3</button>
                     </div>
                 </form>
             </section>
+            <ToastContainer newestOnTop={true} />
         </div>
     )
 }
 
-function finishSetup() {
+function finishSetup(notify) {
+    // Check if name is entered; if not then display error toast
+    if (document.getElementById("welcome-screen-name-input").value === "") {
+        notify();
+        return;
+    }
+
     // Get name (rare comment; should probably comment more often so I can actually understand what's happening after I eeped)
     const name = document.getElementById("welcome-screen-name-input").value;
 

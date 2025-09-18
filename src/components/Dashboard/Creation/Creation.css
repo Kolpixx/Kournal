@@ -173,3 +173,7 @@
     background: #d4d4d4;
   }
 }
+
+.Toastify {
+  position: absolute;
+}

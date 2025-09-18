@@ -1,6 +1,16 @@
 import { getCurrentDate } from "./getCurrentDate";
 
-export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
+export function saveDiary(notifyMissingEmoji, notifyMissingContent, currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
+    if (document.getElementById("creation-input").value === "") {
+        notifyMissingContent();
+        return;
+    }
+
+    if (currentEmoji === null) {
+        notifyMissingEmoji();
+        return;
+    }
+
     // Create JSON
     const content = document.getElementById("creation-input").value;
 
