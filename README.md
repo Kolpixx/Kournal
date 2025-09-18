@@ -21,5 +21,19 @@ Planned features are:
 - 🎨 Design improvements ofc
 - 🔌 Sync using services like Google Drive/OneDrive, etc.
 
+## Images
+### Welcome Screen
+<img width="1920" height="918" alt="grafik" src="https://github.com/user-attachments/assets/b5871d4a-3331-4215-a0e5-fd81fb0e5ef8" />
+
+### Dashboard
+<img width="1920" height="918" alt="grafik" src="https://github.com/user-attachments/assets/7a9645c5-dc4b-4fb5-87d9-2e87b89067ee" />
+
+### Creation
+<img width="1920" height="918" alt="grafik" src="https://github.com/user-attachments/assets/e3217f4b-ab43-42cf-8ca3-a5efdecdb8b5" />
+
+### Information
+<img width="1920" height="918" alt="grafik" src="https://github.com/user-attachments/assets/26b7c42c-d9ee-4f5c-ab04-1f21f9e5d604" />
+
+
 ## License
 This project is licensed under [MIT](https://github.com/Kolpixx/kournal/blob/main/LICENSE)
