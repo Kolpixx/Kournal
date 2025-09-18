@@ -36,11 +36,11 @@
     right: 20px;
 }
 
-#diary-entry-viewer-actions path {
+.diary-entry-viewer-action-button path {
     transition: stroke 0.25s;
 }
 
-#diary-entry-viewer-actions button:hover path {
+.diary-entry-viewer-action-button:hover path {
     stroke: black;
 }
 
@@ -61,7 +61,7 @@
     transition: stroke 0.25s;
 }
 
-#diary-entry-viewer-delete-button:hover svg {
+#diary-entry-viewer-delete-button:hover path {
     stroke: #a70000ff;
 }
 
@@ -73,4 +73,12 @@
     font-size: 1.7rem;
     color: #262626;
     white-space: pre-wrap;
+}
+
+#diary-entry-viewer-back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 45px;
+    width: 45px;
 }

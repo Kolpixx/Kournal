@@ -2,13 +2,16 @@ import './ViewDiaryEntry.css'
 
 import { deleteEntry } from '../../../../util/deleteEntry';
 
-export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleEditingMode, showCreationPage}) {
+export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleEditingMode, showCreationPage, showDiaryInformation}) {
     const entries = JSON.parse(localStorage.getItem("entries"));
     const entry = entries[currentEntryKey];
 
     return (
         <div id="diary-entry-viewer" onClick={(e) => {(e.target.id === "diary-entry-viewer") && viewDiaryEntry(false)}}>
             <div id="diary-entry-viewer-container">
+                <button className="diary-entry-viewer-action-button" id="diary-entry-viewer-back-button" onClick={() => {viewDiaryEntry(false); showDiaryInformation(true)}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#262626" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                </button>
                 <div id="diary-entry-viewer-actions">
                     <button className="diary-entry-viewer-action-button" onClick={() => viewDiaryEntry(false)}>
                         <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">

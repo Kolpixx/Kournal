@@ -29,7 +29,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
     return (
         <div className="dashboard">
             {showingDiaryInformation && <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} />}
-            {viewingDiaryEntry && <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} />}
+            {viewingDiaryEntry && <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} showDiaryInformation={showDiaryInformation} />}
             {showingSettings && <Settings showSettings={showSettings} name={name} />}
             <section className="top">
                 <div className="greeting">
