@@ -98,4 +98,9 @@
     font-family: 'Inter', sans-serif;
     font-weight: 650;
     color: #262626;
+    transition: box-shadow 0.25s;
+}
+
+#view-entry:hover {
+    box-shadow: 5px 5px 3px 0px rgba(0,0,0,0.40);
 }
