@@ -18,6 +18,7 @@
 .top h1 {
     font-family: 'Lilita One', sans-serif;
     font-size: 4.2rem;
+    overflow-wrap: anywhere;
 }
 
 .top p {
