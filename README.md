@@ -1,6 +1,6 @@
 # Kournal
 
-Kournal is a **Free & Open-Source** diary website. Your diary entries are completely **private** and will **never** leave your device.
+Kournal is a **Free & Open-Source** diary website. Your diary entries are completely **private** and will **never** leave your device. Creating a new diary entry is as simple as clicking a single button. (You can only create one entry a day btw!!)
 
 ## Features
 
@@ -34,6 +34,10 @@ Planned features are:
 ### Information
 <img width="1920" height="918" alt="grafik" src="https://github.com/user-attachments/assets/26b7c42c-d9ee-4f5c-ab04-1f21f9e5d604" />
 
+## Credits
+This project wouldn't have been possible without the help of 3rd-party dependencies. You can take a look at all dependencies in the [package.json](https://github.com/Kolpixx/kournal/blob/main/package.json) file.
+
+Big thanks to [frimousse](https://github.com/liveblocks/frimousse) for making the emoji selector possible & big thanks to [React-Toastify](https://github.com/fkhadra/react-toastify) for making the notifications possible ❤️
 
 ## License
 This project is licensed under [MIT](https://github.com/Kolpixx/kournal/blob/main/LICENSE)
