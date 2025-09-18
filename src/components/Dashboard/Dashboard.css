@@ -74,6 +74,25 @@
     background-color: rgb(224, 224, 224);
 }
 
+#settings-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+    width: 64px;
+    height: 64px;
+}
+
+#settings-button svg {
+    transition: transform 0.5s, stroke 0.25s;
+}
+
+#settings-button:hover svg {
+    transform: rotate(90deg);
+    stroke: black;
+}
+
 @media (max-width: 600px) {
     .top h1 {
         font-size: 3rem;

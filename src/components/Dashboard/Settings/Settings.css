@@ -1,0 +1,125 @@
+#settings {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    color: #262626;
+    z-index: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+#settings-container {
+    position: relative;
+    width: 30%;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+#settings-container-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#settings-container > h3 {
+    font-size: 2.5rem;
+}
+
+#settings-container-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#settings-name-input {
+    display: flex;
+    gap: 10px;
+}
+
+#settings-container-form label {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#settings-container-form input {
+    height: 48px;
+    border-radius: 10px;
+    border: 3px solid #262626;
+    padding: 5px;
+    font-size: 1.2rem;
+    color: #262626;
+}
+
+#settings-container-form input:focus {
+    outline: none;
+}
+
+#settings-container-form button {
+    height: 48px;
+    width: 48px;
+    border: 3px solid #262626;
+    background: rgba(92, 255, 111, 0.4);
+    border-radius: 15px;
+    transition: background 0.25s;
+}
+
+#settings-container-form button:hover {
+    background: rgba(92, 255, 111, 0.80);
+}
+
+.settings-action-button {
+    border: none;
+    background: none;
+    width: 36px;
+    height: 36px;
+}
+
+#settings-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#settings-close-button path {
+    transition: stroke 0.25s;
+}
+
+#settings-close-button:hover path {
+    stroke: black;
+}
+
+#settings-import-export {
+    display: flex;
+    gap: 20px;
+    width: 50%;
+}
+
+#settings-import-export button {
+    height: 60px;
+    width: 50%;
+    border-radius: 10px;
+    border: 3px solid #262626;
+    font-weight: bold;
+    color: #262626;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+#settings-import-button:hover {
+    background-color:rgba(92, 255, 111, 0.2);
+    border-color: rgba(92, 255, 111);
+}
+
+#settings-export-button:hover {
+    background-color:rgba(255, 92, 92, 0.2);
+    border-color: rgb(255, 92, 92);
+}
