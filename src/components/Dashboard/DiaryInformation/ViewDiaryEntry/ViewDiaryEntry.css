@@ -24,7 +24,9 @@
     max-height: 80%;
     padding: 50px;
     box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.40);
-    overflow: scroll;
+    overflow-wrap: anywhere;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 #diary-entry-viewer-actions {
@@ -49,12 +51,6 @@
     background: none;
     width: 45px;
     height: 45px;
-}
-
-#diary-entry-viewer-delete-button {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
 }
 
 #diary-entry-viewer-delete-button svg {
