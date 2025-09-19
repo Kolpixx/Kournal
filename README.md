@@ -16,6 +16,7 @@ Kournal is still in early developement, thefore more features are planned for th
 
 Planned features are:
 
+- 🖌️ Markdown support
 - 🧩 Different toggleable "Modules" like Songs, Mood, Pictures, Videos, etc. so you can store even more information about your favorite day!
 - 📝 MORE (CUTE!!) FUN-FACTS!!
 - 🎨 Design improvements ofc
