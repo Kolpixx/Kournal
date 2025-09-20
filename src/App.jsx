@@ -10,7 +10,9 @@ function App() {
   let currentEntryKey = useRef(null);
 
     window.addEventListener("beforeunload", (e) => {
-        showingCreationPage && e.preventDefault();
+      if (showingCreationPage) {
+        e.preventDefault();
+      }
     });
 
   return (
