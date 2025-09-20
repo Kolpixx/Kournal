@@ -4,6 +4,7 @@
 }
 
 .creation {
+    background: var(--background-default);
     padding: 20px;
     z-index: 1;
 }
@@ -21,7 +22,7 @@
     padding: 20px 30px;
     font-family: 'Lilita One', sans-serif;
     font-size: 1.4rem;
-    color: #131313;
+    color: var(--text-secondary);
 }
 
 .creation-input-container {
@@ -93,11 +94,11 @@
   flex-direction: column;
   width: fit-content;
   height: 352px;
-  background: #ffffff;
+  background: var(--background-default);
   isolation: isolate;
   border-radius: 10px;
-  border: 1.5px solid rgb(161, 161, 161);
-  filter: drop-shadow(2px 2px 5px rgb(161, 161, 161));
+  border: 1.5px solid var(--background-secondary);
+  filter: drop-shadow(2px 2px 5px var(--background-secondary));
 }
 
 [frimousse-search] {
@@ -107,18 +108,17 @@
   margin-block-start: 8px;
   margin-inline: 8px;
   padding: 8px 10px;
-  background: #f1f1f1;
+  background: var(--background-secondary);
   border: none;
-  filter: drop-shadow(2px 2px 5px rgb(161, 161, 161));
+  filter: drop-shadow(2px 2px 5px var(--background-secondary));
   border-radius: 6px;
   font-size: 14px;
-  color: #202020;
+  color: var(--text-primary);
   transition: filter 0.5s;
 }
 
 [frimousse-search]:focus {
   outline: none;
-  filter: drop-shadow(2px 2px 5px rgb(117, 117, 117));
 }
 
 [frimousse-viewport] {
@@ -134,7 +134,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color:#a1a1a1,;
+  color: var(--background-default);
   font-size: 14px;
 }
 
@@ -145,8 +145,8 @@
 
 [frimousse-category-header] {
   padding: 12px 12px 6px;
-  background: #ffffff;
-  color: #202020;
+  background: var(--background-default);
+  color: var(--text-primary);
   font-size: 12px;
   font-weight: 500;
 }
@@ -170,7 +170,7 @@
   cursor: pointer;
 
   &[data-active] {
-    background: #d4d4d4;
+    background: var(--background-secondary);
   }
 }
 

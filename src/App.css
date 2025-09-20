@@ -7,5 +7,19 @@ button {
   --primary-color-trans: #26262673;
   --secondary-color: black;
   --background-default: white;
+  --background-secondary: #f1f1f1;
+  --background-trans: rgb(224, 224, 224);
   --text-primary: #262626;
+  --text-secondary: #131313;
+}
+
+.dark {
+  --primary-color: rgb(241, 245, 255);
+  --primary-color-trans: #FFFFFF73;
+  --secondary-color: white;
+  --background-default: rgb(32, 32, 32);
+  --background-secondary: rgb(22, 22, 22);
+  --background-trans: rgb(40, 40, 40);
+  --text-primary: rgb(241, 245, 255);
+  --text-secondary: rgb(236, 236, 236);
 }
