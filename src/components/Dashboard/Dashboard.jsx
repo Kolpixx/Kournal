@@ -38,7 +38,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
             {showingSettings && <Settings showSettings={showSettings} name={name} />}
             <section className="top">
                 <div className="greeting">
-                    <h1>Welcome {name}!</h1>
+                    <h1>Welcome <span id="dashboard-username">{name}</span>!</h1>
                     <p>Fun fact: {funFact}</p>
                 </div>
                 <div className="date">

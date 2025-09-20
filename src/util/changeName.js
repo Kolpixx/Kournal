@@ -1,13 +1,8 @@
-import { toast } from 'react-toastify';
+import { sendToast } from "../toasts";
 
 export function changeName(name) {
-    const notify = () => toast.error("You gotta enter a name... lmao", {
-        position: "bottom-right",
-        closeOnClick: true
-    })
-
     if (name === "") {
-        notify();
+        sendToast("You gotta enter a name silly :3", "error");
         return;
     }
 
@@ -16,6 +11,7 @@ export function changeName(name) {
     userJSON["name"] = name;
 
     localStorage.setItem("user", JSON.stringify(userJSON));
+    document.getElementById("dashboard-username").innerText = name;
 
-    window.location.reload();
+    sendToast("Updated ya name!! (≧∇≦)/", "success");
 }
