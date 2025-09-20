@@ -20,7 +20,7 @@ export default function Settings({showSettings, name}) {
                         </div>
                     </form>
                     <div id="settings-import-export">
-                        <button id="settings-import-button" onClick={importEntries}>Import</button>
+                        <button id="settings-import-button" onClick={() => importEntries(showSettings)}>Import</button>
                         <button id="settings-export-button" onClick={exportEntries}>Export</button>
                     </div>
                 </div>

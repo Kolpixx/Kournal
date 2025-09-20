@@ -1,7 +1,7 @@
 import './Welcome.css'
 
 import { useState, useEffect } from 'react';
-import { sendToast } from '../../toasts';
+import { sendToast } from '../../util/sendToast';
 
 export default function Welcome() {
     const [showingMeowMeow, showMeowMeow] = useState(false);

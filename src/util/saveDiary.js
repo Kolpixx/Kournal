@@ -1,5 +1,5 @@
 import { getCurrentDate } from "./getCurrentDate";
-import { sendToast } from "../toasts";
+import { sendToast } from "./sendToast";
 
 export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
     if (document.getElementById("creation-input").value === "") {

@@ -1,4 +1,4 @@
-import { sendToast } from "../toasts";
+import { sendToast } from "./sendToast";
 
 export function changeName(name) {
     if (name === "") {

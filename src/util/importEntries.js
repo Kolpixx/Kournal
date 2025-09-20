@@ -1,4 +1,4 @@
-export function importEntries() {
+export function importEntries(showSettings) {
     console.log("Trying to import entries");
 
     const input = document.createElement("input");
@@ -12,7 +12,7 @@ export function importEntries() {
 
         reader.addEventListener("load", () => {
             localStorage.setItem("entries", reader.result);
-            window.location.reload();
+            showSettings(false);
         });
 
         if (selectedFile) {

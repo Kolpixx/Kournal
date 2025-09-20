@@ -1,4 +1,4 @@
-import { sendToast } from "../toasts";
+import { sendToast } from "./sendToast";
 
 export function exportEntries() {
     const entriesJSON = JSON.parse(localStorage.getItem("entries"));

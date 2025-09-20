@@ -25,7 +25,7 @@ export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleE
                             <path d="M33.625 9.45837L43.125 18.625" stroke="#262626" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </button>
-                    <button onClick={() => deleteEntry(currentEntryKey)} className="diary-entry-viewer-action-button" id="diary-entry-viewer-delete-button">
+                    <button onClick={() => deleteEntry(currentEntryKey, showDiaryInformation, viewDiaryEntry)} className="diary-entry-viewer-action-button" id="diary-entry-viewer-delete-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#262626" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-trash-icon lucide-trash"><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                     </button>
                 </div>
