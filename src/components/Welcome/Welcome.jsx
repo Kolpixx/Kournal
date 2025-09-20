@@ -1,7 +1,7 @@
 import './Welcome.css'
 
 import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { sendToast } from '../../toasts';
 
 export default function Welcome() {
     const [showingMeowMeow, showMeowMeow] = useState(false);
@@ -14,11 +14,6 @@ export default function Welcome() {
         }
     }, [showingMeowMeow])
 
-    const notify = () => toast.error("You need to enter your name!!", {
-        position: "bottom-right",
-        closeOnClick: true
-    });
-
     return (
         <div id="welcome-screen">
             {showingMeowMeow && <RandomCatImage showMeowMeow={showMeowMeow} />}
@@ -27,7 +22,7 @@ export default function Welcome() {
                 <span>＼(＾▽＾)／</span>
             </section>
             <section id="welcome-screen-right">
-                <form onSubmit={(e) => {e.preventDefault(); finishSetup(notify)}}>
+                <form onSubmit={(e) => {e.preventDefault(); finishSetup()}}>
                     <label htmlFor="welcome-screen-name-input">What's ya' name??</label>
                     <input id="welcome-screen-name-input" type="text" maxLength={20} placeholder="Tell me pwease! :P" />
                     <div id="welcome-screen-actions">
@@ -36,15 +31,14 @@ export default function Welcome() {
                     </div>
                 </form>
             </section>
-            <ToastContainer newestOnTop={true} />
         </div>
     )
 }
 
-function finishSetup(notify) {
+function finishSetup() {
     // Check if name is entered; if not then display error toast
     if (document.getElementById("welcome-screen-name-input").value === "") {
-        notify();
+        sendToast("You need to enter your name silly :3", "error");
         return;
     }
 

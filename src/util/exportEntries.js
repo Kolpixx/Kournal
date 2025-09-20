@@ -1,3 +1,5 @@
+import { sendToast } from "../toasts";
+
 export function exportEntries() {
     const entriesJSON = JSON.parse(localStorage.getItem("entries"));
 
@@ -5,4 +7,6 @@ export function exportEntries() {
     link.href = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(entriesJSON))}`;
     link.download = "entries.json";
     link.click();
+
+    sendToast("Successfully exported your entries :P", "success");
 }

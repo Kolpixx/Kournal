@@ -1,6 +1,5 @@
 import './Settings.css';
 
-import { ToastContainer } from 'react-toastify';
 import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
@@ -32,7 +31,6 @@ export default function Settings({showSettings, name}) {
                     </svg>
                 </button>
             </div>
-            <ToastContainer newestOnTop={true} />
         </div>
     )
 }

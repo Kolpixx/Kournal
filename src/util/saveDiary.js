@@ -1,13 +1,14 @@
 import { getCurrentDate } from "./getCurrentDate";
+import { sendToast } from "../toasts";
 
-export function saveDiary(notifyMissingEmoji, notifyMissingContent, currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
+export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, cleanDate) {
     if (document.getElementById("creation-input").value === "") {
-        notifyMissingContent();
+        sendToast("You ned to write smth... bru", "error");
         return;
     }
 
     if (currentEmoji === null) {
-        notifyMissingEmoji();
+        sendToast("Select an emoji!!", "error");
         return;
     }
 
@@ -39,4 +40,5 @@ export function saveDiary(notifyMissingEmoji, notifyMissingContent, currentEmoji
     localStorage.setItem("entries", JSON.stringify(entriesObject));
 
     showCreationPage(false);
+    sendToast("Saved diary entry (⌒▽⌒)☆", "success");
 }
