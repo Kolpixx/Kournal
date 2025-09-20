@@ -8,7 +8,7 @@
     background: rgba(0, 0, 0, 0.8);
     top: 0;
     left: 0;
-    color: #262626;
+    color: var(--text-primary);
     z-index: 1;
     font-family: 'Inter', sans-serif;
 }
@@ -16,7 +16,7 @@
 #settings-container {
     position: relative;
     width: 500px;
-    background: white;
+    background: var(--background-default);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -55,10 +55,10 @@
 #settings-container-form input {
     height: 48px;
     border-radius: 8px;
-    border: 3px solid #262626;
+    border: 3px solid var(--primary-color);
     padding: 5px;
     font-size: 1.2rem;
-    color: #262626;
+    color: var(--text-primary);
 }
 
 #settings-container-form input:focus {
@@ -68,7 +68,7 @@
 #settings-container-form button {
     height: 48px;
     width: 48px;
-    border: 3px solid #262626;
+    border: 3px solid var(--primary-color);
     background: rgba(92, 255, 111, 0.4);
     border-radius: 8px;
     transition: background 0.25s;
@@ -96,7 +96,7 @@
 }
 
 #settings-close-button:hover path {
-    stroke: black;
+    stroke: bvar(--secondary-color)lack;
 }
 
 #settings-import-export {
@@ -109,10 +109,10 @@
     height: 60px;
     width: 150px;
     border-radius: 8px;
-    border: 3px solid #262626;
+    border: 3px solid var(--primary-color);
     font-size: 1.5rem;
     font-weight: 600;
-    color: #262626;
+    color: var(--text-primary);
     transition: background-color 0.25s, border-color 0.25s;
 }
 

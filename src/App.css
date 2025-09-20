@@ -1,3 +1,11 @@
 button {
   cursor: pointer;
 }
+
+.default {
+  --primary-color: #262626;
+  --primary-color-trans: #26262673;
+  --secondary-color: black;
+  --background-default: white;
+  --text-primary: #262626;
+}

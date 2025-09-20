@@ -1,12 +1,12 @@
 #welcome-screen {
     gap: 75px;
-    color: #262626;
+    color: var(--text-primary);
     z-index: 1;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
+    background: var(--background-default);
     height: 100%;
     width: 100%;
     flex-wrap: wrap;
@@ -49,16 +49,16 @@
 #welcome-screen-name-input {
     height: 64px;
     border-radius: 10px;
-    border: 3px solid #262626;
+    border: 3px solid var(--primary-color);
     padding: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #262626;
+    color: var(--text-primary);
 }
 
 #welcome-screen-name-input:focus {
     outline: none;
-    border-color: black;
+    border-color: var(--secondary-color);
 }
 
 #welcome-screen-actions {
@@ -70,15 +70,15 @@
 #welcome-screen-actions button {
     height: 60px;
     border-radius: 10px;
-    border: 3px solid #262626;
+    border: 3px solid var(--primary-color);
     font-weight: bold;
-    color: #262626;
+    color: var(--text-primary);
     font-size: 120%;
     transition: background-color 0.25s;
 }
 
 #welcome-screen-actions button:hover {
-    border-color: black;
+    border-color: var(--secondary-color);
 }
 
 #welcome-screen-actions-submit {
@@ -123,5 +123,5 @@
     background: none;
     width: 45px;
     height: 45px;
-    filter: drop-shadow(5px 5px 10px black)
+    filter: drop-shadow(5px 5px 10px var(--secondary-color))
 }

@@ -13,7 +13,7 @@
 
 #diary-entry-viewer-container {
     position: relative;
-    background: white;
+    background: var(--background-default);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -43,7 +43,7 @@
 }
 
 .diary-entry-viewer-action-button:hover path {
-    stroke: black;
+    stroke: var(--secondary-color);
 }
 
 .diary-entry-viewer-action-button {
@@ -67,7 +67,7 @@
 
 #diary-entry-content {
     font-size: 1.7rem;
-    color: #262626;
+    color: var(--text-primary);
     white-space: pre-wrap;
 }
 
