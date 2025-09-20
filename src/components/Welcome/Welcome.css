@@ -47,6 +47,7 @@
 }
 
 #welcome-screen-name-input {
+    background: var(--background-default);
     height: 64px;
     border-radius: 10px;
     border: 3px solid var(--primary-color);
