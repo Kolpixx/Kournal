@@ -9,12 +9,6 @@ function App() {
   const [editingMode, toggleEditingMode] = useState(false);
   let currentEntryKey = useRef(null);
 
-    window.addEventListener("beforeunload", (e) => {
-      if (showingCreationPage) {
-        e.preventDefault();
-      }
-    });
-
   return (
     <>
       {localStorage.getItem("visited") !== "1" && <Welcome />}
