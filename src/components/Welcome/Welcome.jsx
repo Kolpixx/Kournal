@@ -47,7 +47,8 @@ function finishSetup() {
 
     // Generate JSON
     const userJSON = {
-        name: name
+        name: name,
+        theme: "default"
     }
 
     // Add 'userJSON' & 'visited' to localStorage

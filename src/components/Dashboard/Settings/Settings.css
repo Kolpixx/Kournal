@@ -36,7 +36,7 @@
     font-size: 2.5rem;
 }
 
-#settings-container-form {
+.settings-container-form {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -47,12 +47,12 @@
     gap: 10px;
 }
 
-#settings-container-form label {
+.settings-container-form label {
     font-size: 1.5rem;
     font-weight: 500;
 }
 
-#settings-container-form input {
+.settings-container-form input {
     background: var(--default-background);
     height: 48px;
     border-radius: 8px;
@@ -62,11 +62,11 @@
     color: var(--text-primary);
 }
 
-#settings-container-form input:focus {
+.settings-container-form input:focus {
     outline: none;
 }
 
-#settings-container-form button {
+.settings-container-form button {
     height: 48px;
     width: 48px;
     border: 3px solid var(--primary-color);
@@ -75,8 +75,19 @@
     transition: background 0.25s;
 }
 
-#settings-container-form button:hover {
+.settings-container-form button:hover {
     background: rgba(92, 255, 111, 0.80);
+}
+
+#settings-theme {
+    border: 3px solid var(--primary-color);
+    background: var(--background-default);
+    color: var(--text-primary);
+    height: 48px;
+    width: 50%;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 1.2rem;
 }
 
 .settings-action-button {

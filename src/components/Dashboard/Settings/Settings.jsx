@@ -3,14 +3,17 @@ import './Settings.css';
 import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
+import { changeTheme } from '../../../util/changeTheme';
 
 export default function Settings({showSettings, name}) {
+    const userJSON = JSON.parse(localStorage.getItem("user"));
+
     return (
         <div id="settings" onClick={(e) => {e.target.id === "settings" && showSettings(false); e.stopPropagation;}}>
             <div id="settings-container">
                 <h3>Settings</h3>
                 <div id="settings-container-settings">
-                    <form id="settings-container-form" onSubmit={(e) => {e.preventDefault(); changeName(document.getElementById("settings-name").value)}}>
+                    <form className="settings-container-form" onSubmit={(e) => {e.preventDefault(); changeName(document.getElementById("settings-name").value)}}>
                         <label htmlFor="settings-name">Name</label>
                         <div id="settings-name-input">
                             <input type="text" id="settings-name" placeholder="Your name here :P" defaultValue={name} maxLength={20} />
@@ -18,6 +21,14 @@ export default function Settings({showSettings, name}) {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
                             </button>
                         </div>
+                    </form>
+                    <form className="settings-container-form" onChange={(e) => changeTheme(e.target.value)}>
+                        <label htmlFor="settings-theme">Theme</label>
+                        <select name="settings-theme" id="settings-theme" defaultValue={userJSON["theme"]}>
+                            <option value="system">System</option>
+                            <option value="default">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
                     </form>
                     <div id="settings-import-export">
                         <button id="settings-import-button" onClick={() => importEntries(showSettings)}>Import</button>
