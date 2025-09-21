@@ -9,7 +9,13 @@
     <script type="module">
       import { changeTheme } from "./src/util/changeTheme.js";
 
-      const userJSON = JSON.parse(localStorage.getItem("user"));
+      let userJSON;
+
+      if (localStorage.getItem("user") !== null) {
+        userJSON = JSON.parse(localStorage.getItem("user"));
+      } else {
+        userJSON = JSON.parse("{}");
+      }
 
       if (userJSON["theme"] !== undefined) {
         document.body.className = userJSON["theme"];

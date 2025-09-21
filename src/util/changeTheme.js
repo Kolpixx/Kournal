@@ -1,7 +1,13 @@
 import { sendToast } from "./sendToast";
 
 export function changeTheme(theme) {
-    const userJSON = JSON.parse(localStorage.getItem("user"));
+    let userJSON;
+
+    if (localStorage.getItem("user") !== null) {
+        userJSON = JSON.parse(localStorage.getItem("user"));
+    } else {
+        userJSON = JSON.parse("{}");
+    }
 
     switch (theme) {
         case "default":
