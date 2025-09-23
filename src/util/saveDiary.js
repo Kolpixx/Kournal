@@ -21,12 +21,9 @@ export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, c
         fullDateClean = getCurrentDate();
         cleanDate = getCurrentDate("DDMMYY");
     }
-
-    if (localStorage.getItem("entries") === null) {
-        localStorage.setItem("entries", "{}");
-    }
-
+    
     let diaryJSON = {
+        id: date,
         key: date,
         fullDateClean: fullDateClean,
         date: cleanDate,
@@ -34,10 +31,20 @@ export function saveDiary(currentEmoji, showCreationPage, date, fullDateClean, c
         emoji: currentEmoji
     }
 
-    const entriesObject = JSON.parse(localStorage.getItem("entries"));
-    entriesObject[date] = diaryJSON;
+    // Create Database
+    const request = indexedDB.open("journalEntries", 1);
 
-    localStorage.setItem("entries", JSON.stringify(entriesObject));
+    // Handle error
+    request.onerror = () => {
+        console.log('Error occured while trying to create/open "journalEntries" IndexedDB database');
+    }
+
+    request.onsuccess = () => {
+        const db = request.result;
+        const transaction = db.transaction("entries", "readwrite");
+        const store = transaction.objectStore("entries");
+        store.put(diaryJSON);
+    }
 
     showCreationPage(false);
     sendToast("Saved diary entry (⌒▽⌒)☆", "success");

@@ -10,6 +10,20 @@ function App() {
   const [editingMode, toggleEditingMode] = useState(false);
   let currentEntryKey = useRef(null);
 
+    // Create Database
+    const request = indexedDB.open("journalEntries", 1);
+
+    // Handle error
+    request.onerror = () => {
+        console.log('Error occured while trying to create/open "journalEntries" IndexedDB database');
+    }
+
+    // Setup basic database structure
+    request.onupgradeneeded = () => {
+        const db = request.result;
+        db.createObjectStore("entries", { keyPath: "id" });
+    }
+
   return (
     <>
       <ToastContainer newestOnTop={true} />
