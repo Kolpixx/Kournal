@@ -1,0 +1,15 @@
+.entries-attachment-window-images-list-image {
+    order: 2;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 98px;
+    height: 98px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 15px;
+    transition: background 0.25s;
+}
+
+.entries-attachment-window-images-list-image:hover {
+    background-color: var(--background-trans);
+}

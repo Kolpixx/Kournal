@@ -70,6 +70,19 @@
     background: rgba(255, 92, 92, 0.4);
 }
 
+.attach-button {
+  height: 75px;
+  width: 75px;
+  background: var(--background-default);
+  border: 3px solid var(--secondary-color);
+  border-radius: 15px;
+  transition: background 0.25s;
+}
+
+.attach-button:hover {
+  background: var(--background-secondary);
+}
+
 .emoji {
     position: relative;
 }
