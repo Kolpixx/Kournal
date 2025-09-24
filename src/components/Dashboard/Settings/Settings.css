@@ -138,3 +138,10 @@
     background-color:rgba(255, 92, 92, 0.2);
     border-color: rgb(255, 92, 92);
 }
+
+#settings-import-export button:disabled {
+    border-color: gray;
+    background-color: rgba(128, 128, 128, 0.644);
+    color: gray;
+    text-decoration: line-through;
+}
