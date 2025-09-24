@@ -11,7 +11,7 @@ export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleE
         getEntry(currentEntryKey)
             .then((response) => setEntry(response))
             .catch((e) => console.log(e));
-    });
+    }, []);
 
     if (!entry) {
         return <div id="diary-entry-viewer"><div id="diary-entry-viewer-container">Loading...</div></div>
