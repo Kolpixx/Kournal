@@ -12,9 +12,11 @@ export default function Creation({showCreationPage, currentEntryKey, editingMode
     const [entry, setEntry] = useState();
 
     useEffect(() => {
-        getEntry(currentEntryKey)
-            .then((response) => setEntry(response))
-            .catch((e) => console.log(e));
+        if (editingMode) {
+            getEntry(currentEntryKey)
+                .then((response) => setEntry(response))
+                .catch((e) => console.log(e));
+        }
     }, []);
 
     useEffect(() => {
@@ -23,8 +25,8 @@ export default function Creation({showCreationPage, currentEntryKey, editingMode
         }
     }, [entry])
 
-    if (!entry) {
-        return <div className="creation"></div>
+    if (editingMode && !entry) {
+        return <div className="creation">Loading...</div>
     }
 
     {/* TODO: Maybe make this a form later w/ proper submit handling to follow standards but too lazy to do that now */}
