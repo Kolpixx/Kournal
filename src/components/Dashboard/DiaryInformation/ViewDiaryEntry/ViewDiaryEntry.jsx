@@ -1,10 +1,21 @@
 import './ViewDiaryEntry.css'
 
 import { deleteEntry } from '../../../../util/deleteEntry';
+import { useEffect, useState } from 'react';
+import getEntry from '../../../../util/getEntry';
 
 export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleEditingMode, showCreationPage, showDiaryInformation}) {
-    const entries = JSON.parse(localStorage.getItem("entries"));
-    const entry = entries[currentEntryKey];
+    const [entry, setEntry] = useState();
+
+    useEffect(() => {
+        getEntry(currentEntryKey)
+            .then((response) => setEntry(response))
+            .catch((e) => console.log(e));
+    });
+
+    if (!entry) {
+        return <div id="diary-entry-viewer"><div id="diary-entry-viewer-container">Loading...</div></div>
+    }
 
     return (
         <div id="diary-entry-viewer" onClick={(e) => {(e.target.id === "diary-entry-viewer") && viewDiaryEntry(false)}}>
