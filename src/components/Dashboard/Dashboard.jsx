@@ -25,17 +25,20 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
 
     // Check if entry was already created
     useEffect(() => {
+        console.log("Cheking if entry was already created...");
         getEntry(getCurrentDate("YYYYMMDD"))
             .then((entry) => {
-                if (entry !== undefined) {
-                    if (entry.date === getCurrentDate("YYYYMMDD")) {
-                        setAlreadyCreatedEntry(false);
-                    } else {
-                        setAlreadyCreatedEntry(true);
-                    }
+                console.log(entry);
+                if (entry === undefined) {
+                    console.log("Not created yet");
+                    setAlreadyCreatedEntry(false);
+                } else {
+                    console.log("Already created");
+                    setAlreadyCreatedEntry(true);
                 }
             })
-    })
+            .catch((e) => console.log(e))
+    }, [showingDiaryInformation, viewingDiaryEntry])
 
     // Disable scroll when some popup is open
     useEffect(() => {
@@ -47,7 +50,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
         getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage)
             .then((entries) => setEntries(entries))
             .catch(() => console.error("Failed to get entries"));
-    }, []);
+    }, [showingDiaryInformation]);
 
     return (
         <div id="dashboard">
