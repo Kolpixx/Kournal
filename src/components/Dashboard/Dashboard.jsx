@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import { getCurrentDate } from '../../util/getCurrentDate';
 import { getEntries } from '../../util/getEntries';
 import { funFacts } from '../../consts';
+import { checkForUpdate } from '../../util/checkForUpdate';
 
 import CreateButton from './CreateButton/CreateButton';
 import DiaryInformation from './DiaryInformation/DiaryInformation'
@@ -47,6 +48,11 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
             .then((entries) => setEntries(entries))
             .catch(() => console.error("Failed to get entries"));
     }, [showingDiaryInformation, showingSettings]);
+
+    // Check for updates
+    useEffect(() => {
+        checkForUpdate();
+    }, []);
 
     return (
         <div id="dashboard">
