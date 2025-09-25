@@ -34,7 +34,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
                 }
             })
             .catch((e) => console.log(e))
-    }, [showingDiaryInformation, viewingDiaryEntry])
+    }, [showingDiaryInformation, viewingDiaryEntry, showingSettings])
 
     // Disable scroll when some popup is open
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
         getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage)
             .then((entries) => setEntries(entries))
             .catch(() => console.error("Failed to get entries"));
-    }, [showingDiaryInformation]);
+    }, [showingDiaryInformation, showingSettings]);
 
     return (
         <div id="dashboard">

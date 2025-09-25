@@ -1,7 +1,7 @@
 import { sendToast } from "./sendToast";
 
 export function exportEntries() {
-    return new Promise((resolve, reject) => {
+    return new Promise(() => {
         // Open Database
         const request = indexedDB.open("journalEntries", 1);
 
