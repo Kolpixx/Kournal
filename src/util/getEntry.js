@@ -10,7 +10,7 @@ export default function getEntry(date) {
 
         request.onsuccess = () => {
             const db = request.result;
-            const transaction = db.transaction("entries", "readwrite");
+            const transaction = db.transaction("entries", "readonly");
             const store = transaction.objectStore("entries");
 
             const entry = store.get(date);

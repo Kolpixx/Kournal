@@ -32,7 +32,7 @@ export default function Settings({showSettings, name}) {
                     </form>
                     <div id="settings-import-export">
                         <button disabled={true} id="settings-import-button" onClick={() => importEntries(showSettings)}>Import</button>
-                        <button disabled={true} id="settings-export-button" onClick={exportEntries}>Export</button>
+                        <button disabled={false} id="settings-export-button" onClick={exportEntries}>Export</button>
                     </div>
                 </div>
                 <button onClick={() => showSettings(false)} id="settings-close-button" className="settings-action-button">
