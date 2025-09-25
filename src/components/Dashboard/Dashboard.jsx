@@ -25,15 +25,11 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
 
     // Check if entry was already created
     useEffect(() => {
-        console.log("Cheking if entry was already created...");
         getEntry(getCurrentDate("YYYYMMDD"))
             .then((entry) => {
-                console.log(entry);
                 if (entry === undefined) {
-                    console.log("Not created yet");
                     setAlreadyCreatedEntry(false);
                 } else {
-                    console.log("Already created");
                     setAlreadyCreatedEntry(true);
                 }
             })
