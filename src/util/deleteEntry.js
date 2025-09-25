@@ -1,14 +1,31 @@
 import { sendToast } from "./sendToast";
 
 export function deleteEntry(currentEntryKey, showDiaryInformation, viewDiaryEntry) {
-    const entries = JSON.parse(localStorage.getItem("entries"));
+    return new Promise(() => {
+        // Open Database
+        const request = indexedDB.open("journalEntries", 1);
 
-    delete entries[currentEntryKey];
+        // Handle error
+        request.onerror = () => {
+            console.error('Error occured while trying to create/open "journalEntries" IndexedDB database');
+        }
 
-    localStorage.setItem("entries", JSON.stringify(entries));
+        request.onsuccess = () => {
+            const db = request.result;
+            const transaction = db.transaction("entries", "readwrite");
+            const store = transaction.objectStore("entries");
 
-    showDiaryInformation(false);
-    viewDiaryEntry(false);
+            const deleteEntry = store.delete(currentEntryKey);
 
-    sendToast("Deleted diary entry :(", "success");
+            deleteEntry.onsuccess = () => {
+                sendToast("Deleted diary entry :(", "success");
+                showDiaryInformation(false);
+                viewDiaryEntry(false);
+            }
+
+            deleteEntry.onerror = () => {
+                sendToast("Failed to delete diary entry :D", "error");
+            }
+        }
+    })
 }

@@ -1,19 +1,34 @@
 import EntryButton from '../components/Dashboard/EntryButton/EntryButton';
 
 export function getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage) {
-    // Get localStorage entries object
-    const items = JSON.parse(localStorage.getItem("entries"));
+    return new Promise((resolve, reject) => {
+        // Create Database
+        const request = indexedDB.open("journalEntries", 1);
 
-    let entries = [];
-    
-    for (let key in items) {
-        const regex = /\d\d\d\d\/\d\d\/\d\d/i;
-        const matchesRegex = regex.test(key);
-
-        if (matchesRegex) {
-            const entry = items[key];
-            entries.push(EntryButton(currentEntryKey, showDiaryInformation, entry, toggleEditingMode, showCreationPage));
+        // Handle error
+        request.onerror = () => {
+            console.log('Error occured while trying to create/open "journalEntries" IndexedDB database');
         }
-    }
-    return entries.reverse();
+
+        request.onsuccess = () => {
+            const db = request.result;
+            const transaction = db.transaction("entries", "readwrite");
+            const store = transaction.objectStore("entries");
+            
+            const getAllEntries = store.getAll();
+
+            getAllEntries.onsuccess = () => {
+                let entries = [];
+                const items = getAllEntries.result;
+                
+                items.forEach((entry) => {
+                    entries.push(EntryButton(currentEntryKey, showDiaryInformation, entry, toggleEditingMode, showCreationPage));
+                })
+
+                resolve(entries.reverse());
+            }
+
+            getAllEntries.onerror = () => reject(getAllEntries.error);
+        }
+    });
 }

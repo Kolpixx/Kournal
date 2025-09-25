@@ -3,19 +3,31 @@ import './Creation.css'
 import { EmojiPicker } from 'frimousse'
 import { useState, useEffect } from 'react';
 import { saveDiary } from '../../../util/saveDiary';
+import getEntry from '../../../util/getEntry';
 
 export default function Creation({showCreationPage, currentEntryKey, editingMode, toggleEditingMode}) {
     const [showingEmojiPicker, toggleEmojiPicker] = useState(false);
     const [currentEmoji, setEmoji] = useState(null);
 
-    const entries = JSON.parse(localStorage.getItem("entries"));
-    const entry = entries[currentEntryKey];
+    const [entry, setEntry] = useState();
 
     useEffect(() => {
         if (editingMode) {
+            getEntry(currentEntryKey)
+                .then((response) => setEntry(response))
+                .catch((e) => console.log(e));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (editingMode && entry !== undefined) {
             setEmoji(entry.emoji);
         }
-    }, [])
+    }, [entry])
+
+    if (editingMode && !entry) {
+        return <div className="creation">Loading...</div>
+    }
 
     {/* TODO: Maybe make this a form later w/ proper submit handling to follow standards but too lazy to do that now */}
 
