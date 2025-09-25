@@ -47,7 +47,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
         getEntries(currentEntryKey, showDiaryInformation, toggleEditingMode, showCreationPage)
             .then((entries) => setEntries(entries))
             .catch(() => console.error("Failed to get entries"));
-    }, [showingDiaryInformation, showingSettings]);
+    }, [showingDiaryInformation, viewingDiaryEntry, showingSettings]);
 
     // Check for updates
     useEffect(() => {
