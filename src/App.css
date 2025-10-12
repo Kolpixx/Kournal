@@ -23,3 +23,7 @@ button {
   --text-primary: rgb(241, 245, 255);
   --text-secondary: rgb(236, 236, 236);
 }
+
+.hidden {
+  display: none;
+}

@@ -53,7 +53,7 @@
 }
 
 .settings-container-form input {
-    background: var(--default-background);
+    background: var(--background-default);
     height: 48px;
     border-radius: 8px;
     border: 3px solid var(--primary-color);
@@ -117,7 +117,7 @@
 }
 
 #settings-import-export button {
-    background: var(--default-background);
+    background: var(--background-default);
     font-family: 'Inter', sans-serif;
     height: 60px;
     width: 150px;
@@ -144,4 +144,44 @@
     background-color: rgba(128, 128, 128, 0.644);
     color: gray;
     text-decoration: line-through;
+}
+
+#custom-theme-select {
+    position: relative;
+}
+
+#custom-theme-select button {
+    width: 200px;
+    height: 48px;
+    background: var(--background-default);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+#custom-theme-select ul {
+    position: absolute;
+    top: 46px;
+    background: var(--background-default);
+    z-index: 3;
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    list-style-type: none;
+    width: 200px;
+    overflow: hidden;
+}
+
+#custom-theme-select li {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+#custom-theme-select li:hover {
+    background: var(--background-trans)
 }

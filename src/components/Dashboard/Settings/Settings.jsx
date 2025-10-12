@@ -4,13 +4,28 @@ import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
 import { changeTheme } from '../../../util/changeTheme';
+import { useEffect, useState } from 'react';
 
 export default function Settings({showSettings, name}) {
     const userJSON = JSON.parse(localStorage.getItem("user"));
 
+    const [selectedTheme, setTheme] = useState("test");
+
+    const selectTheme = (theme) => {
+        setTheme(theme.outerText);
+
+        theme = theme.id;
+        theme = theme.replace("theme-selection-", "");
+        changeTheme(theme);
+    }
+
+    useEffect(() => {
+        setTheme(document.getElementById(`theme-selection-${userJSON["theme"]}`).outerText);
+    }, []);
+
     return (
         <div id="settings" onClick={(e) => {e.target.id === "settings" && showSettings(false); e.stopPropagation;}}>
-            <div id="settings-container">
+            <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value") && document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
                 <h3>Settings</h3>
                 <div id="settings-container-settings">
                     <form className="settings-container-form" onSubmit={(e) => {e.preventDefault(); changeName(document.getElementById("settings-name").value)}}>
@@ -24,11 +39,16 @@ export default function Settings({showSettings, name}) {
                     </form>
                     <form className="settings-container-form" onChange={(e) => changeTheme(e.target.value)}>
                         <label htmlFor="settings-theme">Theme</label>
-                        <select name="settings-theme" id="settings-theme" defaultValue={userJSON["theme"]}>
-                            <option value="system">System</option>
-                            <option value="default">Light</option>
-                            <option value="dark">Dark</option>
-                        </select>
+                        <div id="custom-theme-select">
+                            <button id="custom-theme-select-button" onClick={(e) => {e.preventDefault(); document.getElementById("custom-theme-select-dropdown").classList[0] === "hidden" ? document.getElementById("custom-theme-select-dropdown").classList.remove("hidden") : document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
+                                <span id="custom-theme-selected-value">{selectedTheme}</span>
+                            </button>
+                            <ul id="custom-theme-select-dropdown" className="hidden">
+                                <li id="theme-selection-system" onClick={(e) => selectTheme(e.target)}>System</li>
+                                <li id="theme-selection-default" onClick={(e) => selectTheme(e.target)}>Light</li>
+                                <li id="theme-selection-dark" onClick={(e) => selectTheme(e.target)}>Dark</li>
+                            </ul>
+                        </div>
                     </form>
                     <div id="settings-import-export">
                         <button id="settings-import-button" onClick={() => importEntries(showSettings)}>Import</button>
