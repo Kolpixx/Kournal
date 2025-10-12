@@ -1,0 +1,13 @@
+#attach-image-button {
+    width: 98px;
+    height: 98px;
+    background: var(--background-default);
+    border: 3px solid var(--secondary-color);
+    border-radius: 15px;
+    transition: background 0.25s;
+    order: 1;
+}
+
+#attach-image-button:hover {
+    background: var(--background-trans);
+}

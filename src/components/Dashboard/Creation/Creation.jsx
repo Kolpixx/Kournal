@@ -4,10 +4,13 @@ import { EmojiPicker } from 'frimousse'
 import { useState, useEffect } from 'react';
 import { saveDiary } from '../../../util/saveDiary';
 import getEntry from '../../../util/getEntry';
+import AttachmentWindow from './AttachmentWindow/AttachmentWindow';
 
 export default function Creation({showCreationPage, currentEntryKey, editingMode, toggleEditingMode}) {
     const [showingEmojiPicker, toggleEmojiPicker] = useState(false);
     const [currentEmoji, setEmoji] = useState(null);
+    const [showingAttachmentWindow, toggleAttachmentWindow] = useState(false);
+    const [images, setImages] = useState([]);
 
     const [entry, setEntry] = useState();
 
@@ -33,6 +36,7 @@ export default function Creation({showCreationPage, currentEntryKey, editingMode
 
     return (
         <div className="creation">
+            {showingAttachmentWindow && <AttachmentWindow toggleAttachmentWindow={toggleAttachmentWindow} images={images} setImages={setImages} />}
             <div className="creation-input-container">
                 <div className="creation-top">
                     <div className="emoji">
@@ -42,6 +46,11 @@ export default function Creation({showCreationPage, currentEntryKey, editingMode
                         {showingEmojiPicker ? <MyEmojiPicker setEmoji={setEmoji} toggleEmojiPicker={toggleEmojiPicker} /> : null}
                     </div>
                     <div className="creation-actions">
+                        <button className="attach-button" onClick={() => toggleAttachmentWindow(true)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-paperclip-icon lucide-paperclip">
+                                <path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/>
+                            </svg>
+                        </button>
                         <button className="exit-button" onClick={() => {showCreationPage(false); toggleEditingMode(false)}}>
                             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M33 3L3 33M3 3L33 33" stroke="var(--secondary-color)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
