@@ -16,7 +16,7 @@ export default function Settings({showSettings, name, selectedTheme, setTheme}) 
 
     return (
         <div id="settings" onClick={(e) => {e.target.id === "settings" && showSettings(false); e.stopPropagation;}}>
-            <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value" && e.target.id !== "custom-theme-select-arrow") && document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
+            <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value" && e.target.id !== "custom-theme-select-arrow" && e.target.parentElement.id !== "custom-theme-select-arrow") && document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
                 <h3>Settings</h3>
                 <div id="settings-container-settings">
                     <form className="settings-container-form" onSubmit={(e) => {e.preventDefault(); changeName(document.getElementById("settings-name").value)}}>
