@@ -4,11 +4,8 @@ import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
 import { changeTheme } from '../../../util/changeTheme';
-import { useEffect } from 'react';
 
 export default function Settings({showSettings, name, selectedTheme, setTheme}) {
-    const userJSON = JSON.parse(localStorage.getItem("user"));
-
     const selectTheme = (theme) => {
         setTheme(theme.outerText);
 
@@ -17,14 +14,15 @@ export default function Settings({showSettings, name, selectedTheme, setTheme}) 
         changeTheme(theme);
     }
 
-    // Set theme state
-    useEffect(() => {
-        setTheme(document.getElementById(`theme-selection-${userJSON["theme"]}`).outerText);
-    }, []);
+    const fuckMe = (element) => {
+        console.log("will show dropdown")
+        element.classList.remove("hidden");
+        console.log("it should fucking show now");
+    }
 
     return (
         <div id="settings" onClick={(e) => {e.target.id === "settings" && showSettings(false); e.stopPropagation;}}>
-            <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value") && document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
+            <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value" && e.target.id !== "custom-theme-select-arrow") && document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
                 <h3>Settings</h3>
                 <div id="settings-container-settings">
                     <form className="settings-container-form" onSubmit={(e) => {e.preventDefault(); changeName(document.getElementById("settings-name").value)}}>
@@ -39,8 +37,9 @@ export default function Settings({showSettings, name, selectedTheme, setTheme}) 
                     <form className="settings-container-form" onChange={(e) => changeTheme(e.target.value)}>
                         <label htmlFor="settings-theme">Theme</label>
                         <div id="custom-theme-select">
-                            <button id="custom-theme-select-button" onClick={(e) => {e.preventDefault(); document.getElementById("custom-theme-select-dropdown").classList[0] === "hidden" ? document.getElementById("custom-theme-select-dropdown").classList.remove("hidden") : document.getElementById("custom-theme-select-dropdown").classList.add("hidden")}}>
+                            <button id="custom-theme-select-button" onClick={(e) => {e.preventDefault(); const element = document.getElementById("custom-theme-select-dropdown"); element.classList[0] === "hidden" ? fuckMe(element) : element.classList.add("hidden")}}>
                                 <span id="custom-theme-selected-value">{selectedTheme}</span>
+                                <svg id="custom-theme-select-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down-icon lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
                             </button>
                             <ul id="custom-theme-select-dropdown" className="hidden">
                                 <li id="theme-selection-system" onClick={(e) => selectTheme(e.target)}>System</li>

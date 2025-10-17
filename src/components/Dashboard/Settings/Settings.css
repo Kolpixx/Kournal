@@ -150,13 +150,14 @@
     position: relative;
 }
 
-#custom-theme-select button {
+#custom-theme-select-button {
     width: 200px;
     height: 48px;
     background: var(--background-default);
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    justify-content: space-between;
+    padding: 0 5px 0 10px;
     color: var(--text-primary);
     font-size: 1.2rem;
 }
