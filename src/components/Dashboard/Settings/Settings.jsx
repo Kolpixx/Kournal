@@ -4,8 +4,11 @@ import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
 import { changeTheme } from '../../../util/changeTheme';
+import { useState } from 'react';
 
 export default function Settings({showSettings, name, selectedTheme, setTheme}) {
+    const [showingDropdown, showDropdown] = useState(false);
+
     const selectTheme = (theme) => {
         setTheme(theme.outerText);
 
@@ -31,15 +34,21 @@ export default function Settings({showSettings, name, selectedTheme, setTheme}) 
                     <form className="settings-container-form" onChange={(e) => changeTheme(e.target.value)}>
                         <label htmlFor="settings-theme">Theme</label>
                         <div id="custom-theme-select">
-                            <button id="custom-theme-select-button" onClick={(e) => {e.preventDefault(); const element = document.getElementById("custom-theme-select-dropdown"); element.classList[0] === "hidden" ? element.classList.remove("hidden") : element.classList.add("hidden")}}>
+                            <button id="custom-theme-select-button" onClick={(e) => {e.preventDefault(); showDropdown(!showingDropdown)}}>
                                 <span id="custom-theme-selected-value">{selectedTheme}</span>
-                                <svg id="custom-theme-select-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down-icon lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                                {showingDropdown ? 
+                                    <svg id="custom-theme-select-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-up-icon lucide-arrow-up"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                                    :
+                                    <svg id="custom-theme-select-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-down-icon lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                                }
                             </button>
-                            <ul id="custom-theme-select-dropdown" className="hidden">
-                                <li id="theme-selection-system" onClick={(e) => selectTheme(e.target)}>System</li>
-                                <li id="theme-selection-default" onClick={(e) => selectTheme(e.target)}>Light</li>
-                                <li id="theme-selection-dark" onClick={(e) => selectTheme(e.target)}>Dark</li>
-                            </ul>
+                            {showingDropdown && 
+                                <ul id="custom-theme-select-dropdown">
+                                    <li id="theme-selection-system" onClick={(e) => selectTheme(e.target)}>System</li>
+                                    <li id="theme-selection-default" onClick={(e) => selectTheme(e.target)}>Light</li>
+                                    <li id="theme-selection-dark" onClick={(e) => selectTheme(e.target)}>Dark</li>
+                                </ul>
+                            }
                         </div>
                     </form>
                     <div id="settings-import-export">
