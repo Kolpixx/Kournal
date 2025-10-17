@@ -4,12 +4,10 @@ import { changeName } from '../../../util/changeName';
 import { exportEntries } from '../../../util/exportEntries';
 import { importEntries } from '../../../util/importEntries';
 import { changeTheme } from '../../../util/changeTheme';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-export default function Settings({showSettings, name}) {
+export default function Settings({showSettings, name, selectedTheme, setTheme}) {
     const userJSON = JSON.parse(localStorage.getItem("user"));
-
-    const [selectedTheme, setTheme] = useState("test");
 
     const selectTheme = (theme) => {
         setTheme(theme.outerText);
@@ -19,6 +17,7 @@ export default function Settings({showSettings, name}) {
         changeTheme(theme);
     }
 
+    // Set theme state
     useEffect(() => {
         setTheme(document.getElementById(`theme-selection-${userJSON["theme"]}`).outerText);
     }, []);

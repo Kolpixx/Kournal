@@ -17,11 +17,25 @@
         userJSON = JSON.parse("{}");
       }
 
-      if (userJSON["theme"] !== undefined) {
-        document.body.className = userJSON["theme"];
-      } else {
-        changeTheme("default");
+      function setColorScheme() {
+        if (userJSON["theme"] !== undefined && userJSON["theme"] !== "system") {
+          document.body.className = userJSON["theme"];
+        } else if (userJSON["theme"] === "system") {
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.body.className = "dark";
+          } else {
+              document.body.className = "default"
+          }
+        } else {
+          changeTheme("default");
+        }
       }
+
+      setColorScheme();
+
+      // Update if color scheme changes without reload
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => setColorScheme())
+
     </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

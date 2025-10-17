@@ -17,6 +17,7 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
     const [showingDiaryInformation, showDiaryInformation] = useState(false);
     const [viewingDiaryEntry, viewDiaryEntry] = useState(false);
     const [showingSettings, showSettings] = useState(false);
+    const [selectedTheme, setTheme] = useState("default")
 
     const funFactNumber = useRef(Math.round(Math.random() * ((funFacts.length) - 1)));
     const funFact = funFacts[funFactNumber.current];
@@ -54,11 +55,26 @@ export default function Dashboard({showingCreationPage, showCreationPage, curren
         checkForUpdate();
     }, []);
 
+    // Set theme state
+    useEffect(() => {
+        switch (userJSON["theme"]) {
+            case "default":
+                setTheme("Light");
+                break;
+            case "dark":
+                setTheme("Dark");
+                break;
+            case "system":
+                setTheme("System");
+                break;
+        }
+    })
+
     return (
         <div id="dashboard">
             {showingDiaryInformation && <DiaryInformation currentEntryKey={currentEntryKey.current} showDiaryInformation={showDiaryInformation} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} />}
             {viewingDiaryEntry && <ViewDiaryEntry currentEntryKey={currentEntryKey.current} viewDiaryEntry={viewDiaryEntry} toggleEditingMode={toggleEditingMode} showCreationPage={showCreationPage} showDiaryInformation={showDiaryInformation} />}
-            {showingSettings && <Settings showSettings={showSettings} name={name} />}
+            {showingSettings && <Settings showSettings={showSettings} name={name} selectedTheme={selectedTheme} setTheme={setTheme} />}
             <section className="top">
                 <div className="greeting">
                     <h1>Welcome <span id="dashboard-username">{name}</span>!</h1>

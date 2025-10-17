@@ -21,13 +21,11 @@ export function changeTheme(theme) {
             localStorage.setItem("user", JSON.stringify(userJSON));
             break;
         case "system":
+            userJSON["theme"] = theme;
+            localStorage.setItem("user", JSON.stringify(userJSON));
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.body.className = "dark";
-                userJSON["theme"] = "dark";
-                localStorage.setItem("user", JSON.stringify(userJSON));
             } else {
-                userJSON["theme"] = "default";
-                localStorage.setItem("user", JSON.stringify(userJSON));
                 document.body.className = "default"
             }
             break;
