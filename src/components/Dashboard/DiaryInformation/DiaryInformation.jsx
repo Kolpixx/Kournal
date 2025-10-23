@@ -17,6 +17,10 @@ export default function DiaryInformation({currentEntryKey, showDiaryInformation,
         return (<div id="diary-entry-viewer"><div id="diary-information-container">Loading...</div></div>)
     }
 
+    document.addEventListener("keydown", (e) => {
+        e.key === "Escape" && showDiaryInformation(false);
+    });
+
     return (
         <div id="diary-information" onClick={(e) => {(e.target.id === "diary-information") && showDiaryInformation(false)}}>
             <div id="diary-information-container">

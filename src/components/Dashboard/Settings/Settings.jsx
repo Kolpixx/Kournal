@@ -18,6 +18,10 @@ export default function Settings({showSettings, name, selectedTheme, setTheme}) 
         showDropdown(false);
     }
 
+    document.addEventListener("keydown", (e) => {
+        e.key === "Escape" && showSettings(false);
+    });
+
     return (
         <div id="settings" onClick={(e) => {e.target.id === "settings" && showSettings(false); e.stopPropagation;}}>
             <div id="settings-container" onClick={(e) => {(e.target.id !== "custom-theme-select-button" && e.target.id !== "custom-theme-selected-value" && e.target.id !== "custom-theme-select-arrow" && e.target.parentElement.id !== "custom-theme-select-arrow") && showDropdown(false)}}>

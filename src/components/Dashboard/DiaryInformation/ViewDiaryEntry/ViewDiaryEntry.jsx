@@ -17,6 +17,10 @@ export default function ViewDiaryEntry({currentEntryKey, viewDiaryEntry, toggleE
         return <div id="diary-entry-viewer"><div id="diary-entry-viewer-container">Loading...</div></div>
     }
 
+    document.addEventListener("keydown", (e) => {
+        e.key === "Escape" && viewDiaryEntry(false);
+    });
+
     return (
         <div id="diary-entry-viewer" onClick={(e) => {(e.target.id === "diary-entry-viewer") && viewDiaryEntry(false)}}>
             <div id="diary-entry-viewer-container">
